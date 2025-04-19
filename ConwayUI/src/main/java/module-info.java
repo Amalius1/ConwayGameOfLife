@@ -2,7 +2,6 @@ module pl.aml.bk.conwayui {
     requires javafx.controls;
     requires javafx.fxml;
 
-    requires org.kordamp.bootstrapfx.core;
     requires static lombok;
     requires pl.aml.bk.core;
 

@@ -4,6 +4,7 @@ import javafx.geometry.Insets;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.Slider;
+import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Font;
@@ -14,7 +15,7 @@ import javafx.scene.text.Font;
 public class ConfigurationPane extends VBox {
 
     private final Slider boardSizeSlider;
-    private final Label boardSizeLabel;
+    private final TextField boardSizeField;
     private final Button startButton;
     private final Button stopButton;
     private final Button stepButton;
@@ -33,18 +34,40 @@ public class ConfigurationPane extends VBox {
 
         HBox boardSizeBox = new HBox(10);
         Label boardSizeTextLabel = new Label("Board Size:");
-        boardSizeSlider = new Slider(5, 30, 10);
+        boardSizeSlider = new Slider(5, 100, 10);
         boardSizeSlider.setShowTickMarks(true);
         boardSizeSlider.setShowTickLabels(true);
-        boardSizeSlider.setMajorTickUnit(5);
-        boardSizeSlider.setMinorTickCount(4);
+        boardSizeSlider.setMajorTickUnit(10);
+        boardSizeSlider.setMinorTickCount(9);
         boardSizeSlider.setSnapToTicks(true);
-        boardSizeLabel = new Label("10");
+
+        // Create text field for direct input of board size
+        boardSizeField = new TextField("10");
+        boardSizeField.setPrefWidth(50);
+
+        // Update text field when slider changes
         boardSizeSlider.valueProperty().addListener((obs, oldVal, newVal) -> {
             int value = newVal.intValue();
-            boardSizeLabel.setText(String.valueOf(value));
+            boardSizeField.setText(String.valueOf(value));
         });
-        boardSizeBox.getChildren().addAll(boardSizeTextLabel, boardSizeSlider, boardSizeLabel);
+
+        // Update slider when text field changes (with validation)
+        boardSizeField.textProperty().addListener((obs, oldVal, newVal) -> {
+            try {
+                if (!newVal.isEmpty()) {
+                    int value = Integer.parseInt(newVal);
+                    // Ensure value is within slider range
+                    if (value >= 5 && value <= 100) {
+                        boardSizeSlider.setValue(value);
+                    }
+                }
+            } catch (NumberFormatException e) {
+                // Restore previous valid value if input is not a number
+                boardSizeField.setText(oldVal);
+            }
+        });
+
+        boardSizeBox.getChildren().addAll(boardSizeTextLabel, boardSizeSlider, boardSizeField);
 
         // Game control buttons
         HBox controlBox = new HBox(10);

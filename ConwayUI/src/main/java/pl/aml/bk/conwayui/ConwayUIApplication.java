@@ -152,9 +152,10 @@ public class ConwayUIApplication extends Application {
             }
         });
 
-        Scene scene = new Scene(root, 600, 700);
+        Scene scene = new Scene(root, 800, 800);
         stage.setScene(scene);
         stage.setTitle("Conway's Game of Life");
+        stage.setResizable(true);
         stage.show();
     }
 
@@ -163,7 +164,16 @@ public class ConwayUIApplication extends Application {
         gridPane.getChildren().clear();
 
         // Adjust cell size based on board size to fit the window
-        double cellSize = Math.min(500 / size, 18);
+        // For larger boards (>50), use smaller cells to fit the screen
+        double availableSpace = 600; // Default available space
+        double cellSize;
+
+        if (size > 50) {
+            // For very large boards, scale down more aggressively
+            cellSize = Math.max(4, Math.min(availableSpace / size, 10));
+        } else {
+            cellSize = Math.max(4, Math.min(availableSpace / size, 18));
+        }
 
         // Update CellPane size before displaying
         pl.aml.bk.conwayui.components.CellPane.setCellSize(cellSize);
