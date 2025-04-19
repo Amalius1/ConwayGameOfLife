@@ -1,0 +1,303 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="f2312595-5f8e-48d8-ac78-ab0bada1e1e8" name="Changes" comment="Refactor and modularize Conway's Game of Life project&#10;&#10;Migrated code into a modular multi-module Maven project, separating the core logic and the JavaFX-based UI. The core functionality resides in the &quot;Core&quot; module, while the &quot;ConwayUI&quot; module handles the graphical interface. This improves maintainability and supports modular builds.">
+      <change beforePath="$PROJECT_DIR$/ConwayUI/src/main/java/pl/aml/bk/conwayui/ConwayUIApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConwayUI/src/main/java/pl/aml/bk/conwayui/ConwayUIApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ConwayUI/src/main/java/pl/aml/bk/conwayui/components/ConfigurationPane.java" beforeDir="false" afterPath="$PROJECT_DIR$/ConwayUI/src/main/java/pl/aml/bk/conwayui/components/ConfigurationPane.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Core/src/main/java/pl/aml/bk/core/Game.java" beforeDir="false" afterPath="$PROJECT_DIR$/Core/src/main/java/pl/aml/bk/core/Game.java" afterDir="false" />
+    </list>
+    <list id="f63e86d4-a5a3-416d-ac8a-6d8f0d710130" name="non-commit" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="JavaFXApplication" />
+        <option value="FxmlFile" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MaliciousPackageCheckinHandlerState">
+    <option name="packageCheck" value="true" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
+  <component name="ProjectId" id="2nfRsKYqUKKr9PwEBzE22LfuoYE" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ConwayUIApplication.executor": "Run",
+    "Application.HelloApplication.executor": "Run",
+    "Application.Main.executor": "Run",
+    "JUnit.BoardTest.executor": "Run",
+    "JUnit.BoardTest.flipperObjectSurvives.executor": "Run",
+    "JUnit.BoardTest.rockObjectSurvives.executor": "Run",
+    "JUnit.GameTest.executor": "Run",
+    "JUnit.GameTest.rockObjectSurvives.executor": "Run",
+    "JUnit.NeighbourhoodTest.executor": "Run",
+    "JUnit.NeighbourhoodTest.test.executor": "Run",
+    "JUnit.NeighbourhoodTest.whenInBottomRow_shouldReturnFiveNeighbours.executor": "Run",
+    "JUnit.NeighbourhoodTest.whenInCenter_shouldReturnEightNeighbours.executor": "Run",
+    "JUnit.NeighbourhoodTest.whenInLeftRow_shouldReturnFiveNeighbours.executor": "Run",
+    "JUnit.NeighbourhoodTest.whenInTopRightCorner_shouldReturnThreeNeighbours.executor": "Run",
+    "JUnit.NeighbourhoodTest.whenInTopRow_shouldReturnFiveNeighbours.executor": "Run",
+    "Maven.ConwayGameOfLife [clean,install].executor": "Run",
+    "Maven.ConwayGameOfLife [compile].executor": "Run",
+    "Maven.ConwayUI [clean,install].executor": "Run",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SONARLINT_PRECOMMIT_ANALYSIS": "true",
+    "git-widget-placeholder": "master",
+    "ignore.virus.scanning.warn.message": "true",
+    "junie.onboarding.icon.badge.shown": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Bartek/Projects/ConwayGameOfLife/ConwayUI",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Modules",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.0",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "vue.rearranger.settings.migration": "true"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Bartek\Projects\ConwayGameOfLife\ConwayUI" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Bartek\Projects\ConwayGameOfLife\Core" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="pl.aml.bk.conwayui" />
+      <recent name="pl.aml.bk" />
+    </key>
+  </component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn clean install" />
+    </option>
+  </component>
+  <component name="RunManager" selected="Application.ConwayUIApplication">
+    <configuration name="ConwayUIApplication" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="pl.aml.bk.conwayui.ConwayUIApplication" />
+      <module name="ConwayUI" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.aml.bk.conwayui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="pl.aml.bk.Main" />
+      <module name="ConwayGameOfLife" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.aml.bk.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ConwayGameOfLife" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.aml.bk.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.aml.bk" />
+      <option name="MAIN_CLASS_NAME" value="pl.aml.bk.GameTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTest.flipperObjectSurvives" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ConwayGameOfLife" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.aml.bk.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.aml.bk" />
+      <option name="MAIN_CLASS_NAME" value="pl.aml.bk.GameTest" />
+      <option name="METHOD_NAME" value="flipperObjectSurvives" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GameTest.rockObjectSurvives" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="ConwayGameOfLife" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pl.aml.bk.core.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pl.aml.bk" />
+      <option name="MAIN_CLASS_NAME" value="pl.aml.bk.GameTest" />
+      <option name="METHOD_NAME" value="rockObjectSurvives" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.ConwayUIApplication" />
+        <item itemvalue="JUnit.GameTest.rockObjectSurvives" />
+        <item itemvalue="JUnit.GameTest.flipperObjectSurvives" />
+        <item itemvalue="JUnit.GameTest" />
+        <item itemvalue="Application.Main" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-fbdcb00ec9e3-intellij.indexing.shared.core-IU-251.23774.435" />
+        <option value="bundled-js-predefined-d6986cc7102b-f27c65a3e318-JavaScript-IU-251.23774.435" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="f2312595-5f8e-48d8-ac78-ab0bada1e1e8" name="Changes" comment="" />
+      <changelist id="f63e86d4-a5a3-416d-ac8a-6d8f0d710130" name="non-commit" comment="" />
+      <created>1729362348913</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1729362348913</updated>
+      <workItem from="1729362349971" duration="6522000" />
+      <workItem from="1729405202201" duration="694000" />
+      <workItem from="1729569296875" duration="9276000" />
+      <workItem from="1729678704625" duration="1510000" />
+      <workItem from="1730031184603" duration="1320000" />
+      <workItem from="1730037456874" duration="835000" />
+      <workItem from="1730194743049" duration="5095000" />
+      <workItem from="1731757734651" duration="469000" />
+      <workItem from="1731758379369" duration="209000" />
+      <workItem from="1731928830153" duration="4760000" />
+      <workItem from="1731935717517" duration="7511000" />
+      <workItem from="1732726120284" duration="638000" />
+      <workItem from="1732790820366" duration="683000" />
+      <workItem from="1740380501827" duration="744000" />
+      <workItem from="1740422480864" duration="452000" />
+      <workItem from="1740422944363" duration="864000" />
+      <workItem from="1744200266887" duration="629000" />
+      <workItem from="1744293568265" duration="594000" />
+      <workItem from="1744350762377" duration="7581000" />
+      <workItem from="1745042304276" duration="2400000" />
+    </task>
+    <task id="LOCAL-00001" summary="Init">
+      <option name="closed" value="true" />
+      <created>1731930240577</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1731930240577</updated>
+    </task>
+    <task id="LOCAL-00002" summary="Base version with console display">
+      <option name="closed" value="true" />
+      <created>1731930381568</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1731930381568</updated>
+    </task>
+    <task id="LOCAL-00003" summary=".gitignore - added .idea dir">
+      <option name="closed" value="true" />
+      <created>1731931485553</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1731931485553</updated>
+    </task>
+    <task id="LOCAL-00004" summary=".gitignore - added .idea dir">
+      <option name="closed" value="true" />
+      <created>1731931551411</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1731931551411</updated>
+    </task>
+    <task id="LOCAL-00005" summary="Refactor and modularize Conway's Game of Life project&#10;&#10;Migrated code into a modular multi-module Maven project, separating the core logic and the JavaFX-based UI. The core functionality resides in the &quot;Core&quot; module, while the &quot;ConwayUI&quot; module handles the graphical interface. This improves maintainability and supports modular builds.">
+      <option name="closed" value="true" />
+      <created>1745043428639</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1745043428639</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Init" />
+    <MESSAGE value="Base version with console display" />
+    <MESSAGE value=".gitignore - added .idea dir" />
+    <MESSAGE value="Refactor and modularize Conway's Game of Life project&#10;&#10;Migrated code into a modular multi-module Maven project, separating the core logic and the JavaFX-based UI. The core functionality resides in the &quot;Core&quot; module, while the &quot;ConwayUI&quot; module handles the graphical interface. This improves maintainability and supports modular builds." />
+    <option name="LAST_COMMIT_MESSAGE" value="Refactor and modularize Conway's Game of Life project&#10;&#10;Migrated code into a modular multi-module Maven project, separating the core logic and the JavaFX-based UI. The core functionality resides in the &quot;Core&quot; module, while the &quot;ConwayUI&quot; module handles the graphical interface. This improves maintainability and supports modular builds." />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <breakpoint enabled="true" type="java-exception">
+          <properties class="java.lang.NullPointerException" package="java.lang" />
+          <option name="timeStamp" value="4" />
+        </breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
+  </component>
+</project>
