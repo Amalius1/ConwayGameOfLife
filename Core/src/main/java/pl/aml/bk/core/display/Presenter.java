@@ -1,6 +1,6 @@
-package pl.aml.bk.display;
+package pl.aml.bk.core.display;
 
-import pl.aml.bk.GameState;
+import pl.aml.bk.core.GameState;
 
 public interface Presenter {
 

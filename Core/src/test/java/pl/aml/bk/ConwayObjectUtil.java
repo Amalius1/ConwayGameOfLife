@@ -2,6 +2,7 @@ package pl.aml.bk;
 
 
 import lombok.experimental.UtilityClass;
+import pl.aml.bk.core.Cell;
 
 @UtilityClass
 public class ConwayObjectUtil {

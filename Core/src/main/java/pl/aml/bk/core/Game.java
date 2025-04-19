@@ -1,7 +1,7 @@
-package pl.aml.bk;
+package pl.aml.bk.core;
 
 import lombok.Getter;
-import pl.aml.bk.display.Presenter;
+import pl.aml.bk.core.display.Presenter;
 
 import java.util.Random;
 

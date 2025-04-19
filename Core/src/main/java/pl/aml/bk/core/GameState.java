@@ -1,4 +1,4 @@
-package pl.aml.bk;
+package pl.aml.bk.core;
 
 import lombok.Data;
 

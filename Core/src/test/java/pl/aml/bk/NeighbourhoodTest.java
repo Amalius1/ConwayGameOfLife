@@ -2,6 +2,8 @@ package pl.aml.bk;
 
 import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.Test;
+import pl.aml.bk.core.Cell;
+import pl.aml.bk.core.Neighbourhood;
 
 import java.util.List;
 

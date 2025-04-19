@@ -2,6 +2,9 @@ package pl.aml.bk;
 
 import org.assertj.core.api.WithAssertions;
 import org.junit.jupiter.api.Test;
+import pl.aml.bk.core.Cell;
+import pl.aml.bk.core.ConsolePresenter;
+import pl.aml.bk.core.Game;
 
 class GameTest implements WithAssertions {
 
