@@ -7,16 +7,22 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Alert.AlertType;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.text.Font;
+import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
 import pl.aml.bk.conwayui.components.ConfigurationPane;
 import pl.aml.bk.conwayui.components.JavaFXPresenter;
 import pl.aml.bk.core.Game;
+
+import java.io.File;
+import java.io.IOException;
 
 public class ConwayUIApplication extends Application {
 
@@ -98,6 +104,48 @@ public class ConwayUIApplication extends Application {
             presenter.display(game.getGameState());
         });
 
+        configPane.getSaveButton().setOnAction(e -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Save Board State");
+            fileChooser.getExtensionFilters().add(
+                    new FileChooser.ExtensionFilter("Text Files", "*.txt")
+            );
+            File file = fileChooser.showSaveDialog(stage);
+            if (file != null) {
+                try {
+                    game.saveToFile(file);
+                    showAlert(AlertType.INFORMATION, "Save Successful",
+                            "The board state was saved successfully to " + file.getName());
+                } catch (IOException ex) {
+                    showAlert(AlertType.ERROR, "Save Error",
+                            "An error occurred while saving the board state: " + ex.getMessage());
+                }
+            }
+        });
+
+        configPane.getLoadButton().setOnAction(e -> {
+            FileChooser fileChooser = new FileChooser();
+            fileChooser.setTitle("Load Board State");
+            fileChooser.getExtensionFilters().add(
+                    new FileChooser.ExtensionFilter("Text Files", "*.txt")
+            );
+            File file = fileChooser.showOpenDialog(stage);
+            if (file != null) {
+                try {
+                    game.loadFromFile(file);
+                    presenter.display(game.getGameState());
+                    updateGenerationLabel();
+                    showAlert(AlertType.INFORMATION, "Load Successful",
+                            "The board state was loaded successfully from " + file.getName());
+                } catch (IOException ex) {
+                    showAlert(AlertType.ERROR, "Load Error",
+                            "An error occurred while loading the board state: " + ex.getMessage());
+                } catch (IllegalArgumentException ex) {
+                    showAlert(AlertType.ERROR, "Invalid File Format", ex.getMessage());
+                }
+            }
+        });
+
         configPane.getBoardSizeSlider().valueProperty().addListener((obs, oldVal, newVal) -> {
             if (!timeline.getStatus().equals(Animation.Status.RUNNING)) {
                 initializeGame(newVal.intValue());
@@ -138,6 +186,21 @@ public class ConwayUIApplication extends Application {
         if (game != null && generationLabel != null) {
             generationLabel.setText("Generation: " + game.getGameState().getGeneration());
         }
+    }
+
+    /**
+     * Shows an alert dialog with the specified type, title, and message.
+     *
+     * @param type    The type of alert (INFORMATION, WARNING, ERROR)
+     * @param title   The title of the alert
+     * @param message The message to display
+     */
+    private void showAlert(AlertType type, String title, String message) {
+        Alert alert = new Alert(type);
+        alert.setTitle(title);
+        alert.setHeaderText(null);
+        alert.setContentText(message);
+        alert.showAndWait();
     }
 
     public static void main(String[] args) {

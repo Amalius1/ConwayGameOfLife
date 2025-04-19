@@ -20,6 +20,8 @@ public class ConfigurationPane extends VBox {
     private final Button stepButton;
     private final Button resetButton;
     private final Button randomizeButton;
+    private final Button saveButton;
+    private final Button loadButton;
 
     public ConfigurationPane() {
         setPadding(new Insets(10));
@@ -51,10 +53,12 @@ public class ConfigurationPane extends VBox {
         stepButton = new Button("Step");
         resetButton = new Button("Reset");
         randomizeButton = new Button("Randomize");
+        saveButton = new Button("Save");
+        loadButton = new Button("Load");
 
         stopButton.setDisable(true);
 
-        controlBox.getChildren().addAll(startButton, stopButton, stepButton, resetButton, randomizeButton);
+        controlBox.getChildren().addAll(startButton, stopButton, stepButton, resetButton, randomizeButton, saveButton, loadButton);
 
         getChildren().addAll(titleLabel, boardSizeBox, controlBox);
     }
@@ -85,5 +89,13 @@ public class ConfigurationPane extends VBox {
 
     public Slider getBoardSizeSlider() {
         return boardSizeSlider;
+    }
+
+    public Button getSaveButton() {
+        return saveButton;
+    }
+
+    public Button getLoadButton() {
+        return loadButton;
     }
 }
