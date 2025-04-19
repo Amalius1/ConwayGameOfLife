@@ -45,19 +45,33 @@ Contains the JavaFX user interface:
 
 ## Requirements
 
-- Java 11 or higher
-- JavaFX 11 or higher
-- Maven for building the project
+- Java 21 or higher
+- JavaFX 21 or higher
+- Maven wrapper is included (no need to install Maven)
 
 ## Building and Running
 
-To build the project:
+To build the project using the Maven wrapper:
 
 ```bash
-mvn clean install
+# On Windows
+.\mvnw clean install
+
+# On Linux/Mac
+./mvnw clean install
 ```
 
 To run the application:
+
+```bash
+# On Windows
+.\mvnw -pl ConwayUI javafx:run
+
+# On Linux/Mac
+./mvnw -pl ConwayUI javafx:run
+```
+
+Alternatively, you can run the JAR file directly after building:
 
 ```bash
 java -jar ConwayUI/target/ConwayUI-1.0-SNAPSHOT.jar
