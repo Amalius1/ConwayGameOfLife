@@ -21,16 +21,18 @@ import pl.aml.bk.conwayui.components.ConfigurationPane;
 import pl.aml.bk.conwayui.components.JavaFXPresenter;
 import pl.aml.bk.core.Game;
 
+import java.io.BufferedReader;
 import java.io.File;
+import java.io.FileReader;
 import java.io.IOException;
+
+import static java.lang.Math.clamp;
 
 public class ConwayUIApplication extends Application {
 
     private Game game;
     private JavaFXPresenter presenter;
-    private Timeline timeline;
     private GridPane gridPane;
-    private ConfigurationPane configPane;
     private Label generationLabel;
 
     @Override
@@ -38,7 +40,7 @@ public class ConwayUIApplication extends Application {
         BorderPane root = new BorderPane();
 
         // Create configuration pane
-        configPane = new ConfigurationPane();
+        var configPane = new ConfigurationPane();
         root.setTop(configPane);
 
         // Create grid pane for the game board
@@ -63,7 +65,7 @@ public class ConwayUIApplication extends Application {
         initializeGame(configPane.getBoardSize());
 
         // Set up animation timeline for game simulation
-        timeline = new Timeline(new KeyFrame(Duration.millis(200), e -> {
+        var timeline = new Timeline(new KeyFrame(Duration.millis(200), e -> {
             game.nextGeneration();
             presenter.display(game.getGameState());
             updateGenerationLabel();
@@ -132,6 +134,17 @@ public class ConwayUIApplication extends Application {
             File file = fileChooser.showOpenDialog(stage);
             if (file != null) {
                 try {
+                    // First read the board size from the file
+                    int fileSize = readBoardSizeFromFile(file);
+
+                    // If the board size is different, reinitialize the game with the new size
+                    if (game.getGameState().getBoardSize() != fileSize) {
+                        initializeGame(fileSize);
+                        // Update the slider to match the new board size
+                        configPane.getBoardSizeSlider().setValue(fileSize);
+                    }
+
+                    // Now load the file content
                     game.loadFromFile(file);
                     presenter.display(game.getGameState());
                     updateGenerationLabel();
@@ -170,9 +183,9 @@ public class ConwayUIApplication extends Application {
 
         if (size > 50) {
             // For very large boards, scale down more aggressively
-            cellSize = Math.max(4, Math.min(availableSpace / size, 10));
+            cellSize = clamp(availableSpace / size, 4, 10);
         } else {
-            cellSize = Math.max(4, Math.min(availableSpace / size, 18));
+            cellSize = clamp(availableSpace / size, 4, 18);
         }
 
         // Update CellPane size before displaying
@@ -211,6 +224,30 @@ public class ConwayUIApplication extends Application {
         alert.setHeaderText(null);
         alert.setContentText(message);
         alert.showAndWait();
+    }
+
+    /**
+     * Reads the board size from the first line of a Conway's Game of Life save file.
+     *
+     * @param file The file to read from
+     * @return The board size as an integer
+     * @throws IOException              If an I/O error occurs
+     * @throws IllegalArgumentException If the file format is invalid
+     */
+    private int readBoardSizeFromFile(File file) throws IOException {
+        try (BufferedReader reader = new BufferedReader(new FileReader(file))) {
+            // Read board size from the first line
+            String sizeStr = reader.readLine();
+            if (sizeStr == null) {
+                throw new IllegalArgumentException("Invalid file format: missing board size");
+            }
+
+            try {
+                return Integer.parseInt(sizeStr);
+            } catch (NumberFormatException e) {
+                throw new IllegalArgumentException("Invalid file format: board size must be a number");
+            }
+        }
     }
 
     public static void main(String[] args) {
