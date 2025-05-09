@@ -4,23 +4,54 @@ import javafx.beans.property.SimpleBooleanProperty;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.Border;
 import javafx.scene.layout.Pane;
+import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+
+import java.util.Random;
 
 public class CellPane extends Pane {
 
     private final SimpleBooleanProperty state = new SimpleBooleanProperty(false);
     private static double cellSize = 18d;
+    private int age = 0;
+    private static final Random random = new Random();
+    private static final int AGE_THRESHOLD = 5;
 
     public CellPane(boolean state) {
+        this(state, 0);
+    }
+
+    public CellPane(boolean state, int age) {
         this.setBorder(Border.stroke(Paint.valueOf("gray")));
         this.setPrefWidth(cellSize);
         this.setPrefHeight(cellSize);
+        this.age = age;
+
         this.state.addListener((obs, oldVal, newVal) -> {
-            Paint stateColor = Boolean.TRUE.equals(newVal) ? Paint.valueOf("black") : Paint.valueOf("white");
-            setBackground(Background.fill(stateColor));
+            updateCellColor();
         });
+
         setOnMouseClicked(event -> toggle());
         this.state.set(state);
+        updateCellColor(); // Ensure color is set initially
+    }
+
+    private void updateCellColor() {
+        if (!state.get()) {
+            // Dead cell is always white
+            setBackground(Background.fill(Paint.valueOf("white")));
+        } else if (age > AGE_THRESHOLD) {
+            // Cells older than threshold get a random color
+            Color randomColor = Color.rgb(
+                    random.nextInt(256),
+                    random.nextInt(256),
+                    random.nextInt(256)
+            );
+            setBackground(Background.fill(randomColor));
+        } else {
+            // Young living cells are black
+            setBackground(Background.fill(Paint.valueOf("black")));
+        }
     }
 
     public void toggle() {
@@ -55,5 +86,14 @@ public class CellPane extends Pane {
      */
     public static double getCellSize() {
         return cellSize;
+    }
+
+    public int getAge() {
+        return age;
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+        updateCellColor();
     }
 }

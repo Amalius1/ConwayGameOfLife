@@ -30,13 +30,16 @@ public class JavaFXPresenter implements Presenter {
             for (int j = 0; j < boardSize; j++) {
                 final int row = i;
                 final int col = j;
-                CellPane cellPane = new CellPane(cells[i][j].isAlive());
+                CellPane cellPane = new CellPane(cells[i][j].isAlive(), cells[i][j].getAge());
 
                 // Update the game state when the cell is clicked
                 cellPane.setOnMouseClicked(event -> {
                     cellPane.toggle();
                     if (gameState != null && gameState.getCells() != null) {
                         gameState.getCells()[row][col].setAlive(cellPane.getState());
+                        // Reset age when manually toggling a cell
+                        gameState.getCells()[row][col].setAge(0);
+                        cellPane.setAge(0);
                     }
                 });
 

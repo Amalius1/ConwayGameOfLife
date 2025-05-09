@@ -30,7 +30,20 @@ public class Game {
             for (int j = 0; j < boardSize; j++) {
                 Neighbourhood neighbours = getNeighbours(i, j);
                 Cell cell = new Cell();
-                cell.setAlive(neighbours.calculateIfSurvives());
+                boolean willBeAlive = neighbours.calculateIfSurvives();
+                cell.setAlive(willBeAlive);
+
+                // Update cell age based on previous state
+                if (willBeAlive) {
+                    // If the cell was alive in the previous generation and will remain alive,
+                    // increment its age
+                    if (gameState.getCells()[i][j].isAlive()) {
+                        cell.setAge(gameState.getCells()[i][j].getAge() + 1);
+                    }
+                    // If the cell is newly born, age remains 0
+                }
+                // If the cell is dead, age remains 0
+
                 nextGeneration[i][j] = cell;
             }
         }

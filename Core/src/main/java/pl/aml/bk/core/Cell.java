@@ -6,5 +6,6 @@ import lombok.Data;
 public class Cell {
 
     private boolean alive;
+    private int age = 0;
 
 }
